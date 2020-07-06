@@ -14,9 +14,9 @@
         <div>
             <div class="c-time">
 
-                <time datetime="{{ page.date | date(format="%F") | safe }}">
-                    {{ page.date | date(format="%F") }}
-                </time>
+              <time datetime="{{ page.date | date(format="%F") | safe }}">
+                {{ page.date | date(format="%b %d, %Y") }}
+              </time>
                 {% if page.extra.author -%}
                   by {{ page.extra.author}}
                 {%- endif %}
@@ -53,6 +53,28 @@
         {{ post_macros::polish(content=page.content) }}
     </section>
     <footer>
+      <hr>
+      <div>
+        {% if page.taxonomies.tags %}
+        <div class="post-tags">
+          <p>Tags:
+            {% for tag in page.taxonomies.tags %}
+            <a href="{{ get_taxonomy_url(kind="tags", name=tag) }}">{{ tag }}, </a>
+            {% endfor %}
+          </p>
+        </div>
+        {% endif %}
+
+        {% if page.taxonomies.categories %}
+        <div class="post-tags">
+          <p>Categories:
+            {% for category in page.taxonomies.categories %}
+            <a href="{{ get_taxonomy_url(kind="categories", name=category) }}">{{ category }}</a>
+            {% endfor %}
+          </p>
+        </div>
+        {% endif %}
+      </div>
         <nav class="c-pagination p-pagination">
             <div class="c-pagination__ctrl">
                 <div class="c-pagination__newer">
