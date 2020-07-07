@@ -72,6 +72,10 @@
         </header>
         {%- endblock header %}
 
+        {% block taxonomies_header %}
+        <div id="taxonomy-header"></div>
+        {% endblock %}
+
         <main id="main" class="l-main">
             {% block content -%}
             {% for page in paginator.pages %}
