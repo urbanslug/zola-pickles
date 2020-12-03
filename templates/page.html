@@ -7,20 +7,25 @@
 <meta name="twitter:title" content="{{page.title}} | {{config.title}}" />
 {%- endblock title %}
 
+{% block header -%}
+{%- endblock header %}
+
+
 {% block content %}
 <article class="p-article">
-    <header>
-        <h1>{{ page.title }}</h1>
+  <header>
+    <a id="home-link" href="{{ config.base_url }}"><i class="fas fa-home"></i> {{ config.title }}</a>
+    <h1 id="page-title">{{ page.title }}</h1>
         <div>
             <div class="c-time">
 
               <time datetime="{{ page.date | date(format="%F") | safe }}">
                 {{ page.date | date(format="%b %d, %Y") }}
               </time>
-                {% if page.extra.author -%}
-                  by {{ page.extra.author}}
-                {%- endif %}
-                {{ " - " }}({{ page.reading_time }} min read)
+              {% if page.extra.author -%}
+              by {{ page.extra.author}}
+              {%- endif %}
+              {{ " - " }}({{ page.reading_time }} min read)
             </div>
         </div>
     </header>

@@ -91,7 +91,7 @@
                 <a href="{{ page.permalink }}" class="c-article__btn p-list-article__btn">Read more...</a>
             </article>
             {% endfor %}
-            
+
             <nav class="c-pagination p-pagination">
                 <div class="c-pagination__ctrl">
                     <div class="c-pagination__newer">
@@ -111,11 +111,10 @@
             {%- endblock content %}
         </main>
 
-     
         <footer class="l-footer">
           <div id="socials">
-            <span class="social-item"><i class="fab fa-github"></i><a href="https://github.com/urbanslug">urbanslug</a></span>
-            <span class="social-item"><i class="fab fa-twitter"></i><a href="https://twitter.com/urbanslug">urbanslug</a></span>
+            <span class="social-item"><i class="fab fa-github"></i><a target="_blank" href="https://github.com/urbanslug">urbanslug</a></span>
+            <span class="social-item"><i class="fab fa-twitter"></i><a target="_blank" href="https://twitter.com/urbanslug">urbanslug</a></span>
           </div>
           {% block footer -%}
           <p class="p-copyright">
@@ -137,7 +136,7 @@
 
           gtag('config', '{{ config.extra.analytics }}');
       </script>
-      {%- endif %} 
+      {%- endif %}
       {% if config.extra.katex_enable -%}
       <link rel="stylesheet" href="{{ get_url(path="css/katex.min.css") }}">
       <script defer src="{{ get_url(path="js/katex.min.js") }}"></script>
@@ -145,4 +144,3 @@
       {%- endif %}
     </body>
 </html>
-            
